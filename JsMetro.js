@@ -19,7 +19,7 @@ function fetchWeather(latitude, longitude) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
-                    var temp = response.code;
+                    var temp = response.data.nearstations[1].name;
                     Talk2Watch.sendSms(temp, "Weather in " + response.code);
                 }
             }
