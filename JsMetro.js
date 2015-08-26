@@ -23,7 +23,11 @@ function fetchWeather(latitude, longitude) {
                     var namesta = response.data.nearstations[i].name;
                     var consta = response.data.nearstations[i].connections;
                     var dist = Math.round(response.data.nearstations[i].distance*1000);
-                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist + " m", "Nearest Metro Station "+ i);
+                    var lati = response.data.nearstations[i].lat;
+                    var longi = response.data.nearstations[i].lon;
+                    var ypos = Math.round((lati - latitude)*10000)/10;
+                    var xpos = Math.round((longi - longitude)*10000)/10;
+                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist + " m" + "\n" + "(" + xpos + "," + ypos + ")", "Nearest Metro Station "+ i);
                   }
                 }
             }
