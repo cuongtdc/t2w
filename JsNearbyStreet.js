@@ -10,7 +10,7 @@ function locationError(err) {
 function fetchWeather(latitude, longitude) {
     var response;
     var req = new XMLHttpRequest();
-    var url = "http://barcelonaapi.marcpous.com/metro/nearstation/latlon/"+ latitude + "/" +longitude +"/1.json";
+    var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true_or_false";
 
     req.open('GET', url, true);
     req.onload = function(e) {
@@ -19,12 +19,8 @@ function fetchWeather(latitude, longitude) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
-                  for (var i=2; i>=0; i--){
-                    var namesta = response.data.nearstations[i].name;
-                    var consta = response.data.nearstations[i].connections;
-                    var dist = response.data.nearstations[i].distance;
-                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist, "Nearest Metro Station "+ i);
-                  }
+                    var addr = response.results.formatted_address;
+                    Talk2Watch.sendSms(addr, "Nearby Position");
                 }
             }
         }
