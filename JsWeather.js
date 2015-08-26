@@ -21,7 +21,7 @@ function fetchWeather(latitude, longitude) {
                 if (response) {
                     var station = response.code;
                     }*/
-                    Talk2Watch.sendSms("Weather in " + station);
+                    Talk2Watch.sendSms("Weather in ");
                 }
             }
         }
