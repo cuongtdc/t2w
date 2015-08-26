@@ -30,10 +30,8 @@ function fetchWeather(latitude, longitude) {
                     var dist = Math.round(response.data.nearstations[i].distance*1000);
                     var lati = response.data.nearstations[i].lat;
                     var longi = response.data.nearstations[i].lon;
-                    var ypos = (lati - latitude)/leng0;
-                    var xpos = (longi - longitude)/leng0;
-                   // var ypos = Math.round(((lati - latitude)/leng0)*10)/10;
-                   // var xpos = Math.round(((longi - longitude)/leng0)*10)/10;
+                    var ypos = Math.round(((lati - latitude)/leng0)*10)/10;
+                    var xpos = Math.round(((longi - longitude)/leng0)*10)/10;
                     Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist + " m" + "\n" + "(" + xpos + "," + ypos + ")", "Nearest Metro Station "+ i);
                   }
                 }
