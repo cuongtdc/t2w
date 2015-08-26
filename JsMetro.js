@@ -22,7 +22,7 @@ function fetchWeather(latitude, longitude) {
                   for (var i=2; i>=0; i--){
                     var namesta = response.data.nearstations[i].name;
                     var consta = response.data.nearstations[i].connections;
-                    Talk2Watch.sendSms(namesta \n consta, "Nearest Metro Station");
+                    Talk2Watch.sendSms(namesta + "\n" + consta, "Nearest Metro Station");
                   }
                 }
             }
