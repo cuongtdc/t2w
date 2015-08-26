@@ -1,4 +1,4 @@
-function locationSuccess(pos) {
+/* function locationSuccess(pos) {
   var coordinates = pos.coords;
   fetchWeather(coordinates.latitude, coordinates.longitude);
 }
@@ -6,7 +6,7 @@ function locationSuccess(pos) {
 function locationError(err) {
 
 }
-/*  
+ 
 function fetchWeather(latitude, longitude) {
     var response;
     var req = new XMLHttpRequest();
@@ -31,4 +31,4 @@ function fetchWeather(latitude, longitude) {
 */
 Talk2Watch.sendSms("Weather in ");
 
-window.navigator.geolocation.getCurrentPosition(locationSuccess,locationError);
+//window.navigator.geolocation.getCurrentPosition(locationSuccess,locationError);
