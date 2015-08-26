@@ -32,7 +32,8 @@ function fetchWeather(latitude, longitude) {
                     var longi = response.data.nearstations[i].lon;
                     var ypos = Math.round(((lati - latitude)/leng0)*10)/10;
                     var xpos = Math.round(((longi - longitude)/leng0)*10)/10;
-                    var ang = Math.atan2(ypos,xpos)*180/Math.PI;
+                    var ang = Math.round(Math.atan2(ypos,xpos)*180/Math.PI);
+                    if (ang<0) {var ang = 360-ang;}
                     Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + "Polar: (" + dist + " m," + ang + " d)" + "\n" + "(" + xpos + "," + ypos + ")", "Nearest Metro Station "+ i);
                   }
                 }
