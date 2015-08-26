@@ -23,7 +23,7 @@ function fetchWeather(latitude, longitude) {
                   var longi0 = response.data.nearstations[0].lon;
                   var ypos0 = lati0 - latitude;
                   var xpos0 = longi0 - longitude;
-                  var leng0 = Math.sqrt(Math.pow(xpos0)+Math.pow(ypos0));
+                  var leng0 = Math.sqrt(Math.pow(xpos0,2)+Math.pow(ypos0,2));
                   for (var i=2; i>=0; i--){
                     var namesta = response.data.nearstations[i].name;
                     var consta = response.data.nearstations[i].connections;
