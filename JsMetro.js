@@ -23,7 +23,7 @@ function fetchWeather(latitude, longitude) {
                     var namesta = response.data.nearstations[i].name;
                     var consta = response.data.nearstations[i].connections;
                     var dist = Math.round(response.data.nearstations[i].distance*100);
-                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist + " m", "Nearest Metro Station "+ i);
+                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist, "Nearest Metro Station "+ i);
                   }
                 }
             }
