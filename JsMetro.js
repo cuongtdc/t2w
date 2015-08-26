@@ -19,8 +19,8 @@ function fetchWeather(latitude, longitude) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
-                  var lati0 = response.data.nearstations[i].lat;
-                  var longi0 = response.data.nearstations[i].lon;
+                  var lati0 = response.data.nearstations[0].lat;
+                  var longi0 = response.data.nearstations[0].lon;
                   var ypos0 = Math.round((lati0 - latitude)*10000)/10;
                   var xpos0 = Math.round((longi0 - longitude)*10000)/10;
                   var leng0 = Math.hypot(xpos0,ypos0);
