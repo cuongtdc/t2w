@@ -33,7 +33,7 @@ function fetchWeather(latitude, longitude) {
                     var ypos = Math.round(((lati - latitude)/leng0)*10)/10;
                     var xpos = Math.round(((longi - longitude)/leng0)*10)/10;
                     var ang = Math.round(Math.atan2(ypos,xpos)*180/Math.PI);
-                    if ((ang-90)>0) {var ang = ang-90;} else {var ang = ang+270;}
+                    if (ang-90<0) {var ang = -ang+90;} else {var ang = ang-90;}
                     Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + "Polar: (" + dist + " m," + ang + " d)" + "\n" + "(" + xpos + "," + ypos + ")", "Nearest Metro Station "+ i);
                   }
                 }
