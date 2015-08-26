@@ -10,8 +10,8 @@ function locationError(err) {
 function fetchWeather(latitude, longitude) {
     var response;
     var req = new XMLHttpRequest();
-    var url = "http://api.openweathermap.org/data/2.5/weather?" + "lat=" + latitude + "&lon=" + longitude + "&cnt=1";
-
+    var url = "http://barcelonaapi.marcpous.com/metro/nearstation/latlon/" + "lat=" + latitude + "/" + longitude + "/1.json";
+#    var url = "http://api.openweathermap.org/data/2.5/weather?" + "lat=" + latitude + "&lon=" + longitude + "&cnt=1";
     req.open('GET', url, true);
     req.onload = function(e) {
 
