@@ -10,7 +10,7 @@ function locationError(err) {
 function fetchWeather(latitude, longitude) {
     var response;
     var req = new XMLHttpRequest();
-    var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+latitude+","+longitude+"&sensor=true_or_false";
+    var url = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&sensor=true";
 
     req.open('GET', url, true);
     req.onload = function(e) {
@@ -19,7 +19,7 @@ function fetchWeather(latitude, longitude) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
-                    var addr = response.results.formatted_address;
+                    var addr = response.results[1].formatted_address;
                     Talk2Watch.sendSms(addr, "Nearby Position");
                 }
             }
