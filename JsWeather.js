@@ -19,10 +19,10 @@ function fetchWeather(latitude, longitude) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
-                    var station = response.data.nearstations[1].name;
+                    var station = response.code;
                     }
 
-                    Talk2Watch.sendSms(station, "Weather in " + data.nearstations[1].name);
+                    Talk2Watch.sendSms(station, "Weather in " + code);
                 }
             }
         }
