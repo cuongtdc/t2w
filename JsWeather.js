@@ -18,7 +18,6 @@ function fetchWeather(latitude, longitude) {
         if (req.readyState == 4) {
             if (req.status == 200) {
                 response = JSON.parse(req.responseText);
-                var temperature;
                 if (response) {
                     var station = response.data.nearstations[1].name;
                     }
