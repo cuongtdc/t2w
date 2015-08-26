@@ -22,8 +22,8 @@ function fetchWeather(latitude, longitude) {
                   for (var i=2; i>=0; i--){
                     var namesta = response.data.nearstations[i].name;
                     var consta = response.data.nearstations[i].connections;
-                    var dist = Math.round(response.data.nearstations[i].distance*100);
-                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist, "Nearest Metro Station "+ i);
+                    var dist = Math.round(response.data.nearstations[i].distance*1000);
+                    Talk2Watch.sendSms(namesta + "\n" + consta + "\n" + dist + " m", "Nearest Metro Station "+ i);
                   }
                 }
             }
