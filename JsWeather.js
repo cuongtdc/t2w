@@ -16,11 +16,11 @@ function fetchWeather(latitude, longitude) {
     req.onload = function(e) {
 
         if (req.readyState == 4) {
-            if (req.status == 200) {
+/*            if (req.status == 200) {
                 response = JSON.parse(req.responseText);
                 if (response) {
                     var station = response.code;
-                    }
+                    }*/
                     Talk2Watch.sendSms("Weather in " + station);
                 }
             }
